@@ -1,0 +1,79 @@
+<!-- São recursos de progrmação contido no browser, que nos permite desenvolver funcionalidade complexa, dentro das páginas web, com mais facilidade.
+  - Para adcionar alguns recursos em apicação web, como e envio de notificões, por exemplo, teriamos que conhecer profundamente sobre o funcionamento do navegador
+  - A Web notifica API nos permite implementar esse recurso ultilizando poucas linhas de código.  
+  1. WEB API NOTIFICATIONS: genrenciar notficações
+  2. WEB AUDIO API: manipular audio na navegador
+  3. WEB STORAGE API: armazenar dados no navegador
+
+  * É importante ressaltar que as Web APIs não são parte do JavaScript, mas sim uma interface de programação que o JavaScript pode usar para interagir com o navegador.
+
+  ? A DOM API
+
+  - DOM (do inglês Document Object Model): silga para modelo de objeto de documento:  é uma interface de programação que representa a estrutura de um documento HTML ou XML como uma árvore de nós. Cada nó na árvore representa um elemento, atributo ou texto no documento.
+  - A DOM API permite que os desenvolvedores acessem e manipulem esses nós, alterando o conteúdo, a estrutura e o estilo do documento em tempo real. Isso é fundamental para criar páginas web dinâmicas e interativas.
+  - Essa representação em árvore permite que os desenvolvedores acessem e manipulem facilmente os elementos do documento, como adicionar, remover ou modificar nós, alterar atributos e estilos, e responder a eventos do usuário.
+  - É comum o termo "Árvore de elementos do DOM" para se referir à estrutura hierárquica que representa o documento HTML ou XML.
+  - Para toda pagina web contida em navegador, exite um objeto "document" que a representa. Esse objeto é a raiz da árvore DOM e fornece métodos e propriedades para acessar e manipular os nós da árvore.
+  - É a partie desse objetoque poderemos accessar  todos o elementos da pagina, assim como poderemos alterar o conteúdo, o estilo e a estrutura da pagina.
+  - dentro de qualquer script JS que esteja rodando o navegador, é possivel acessar o objeto document, que representa a pagina web atual. Esse objeto é a raiz da árvore DOM e fornece métodos e propriedades para acessar e manipular os nós da árvore.
+  - Alguns atributos do objeto document:
+    * document.body: representa o elemento <body> do documento.
+    * document.head: representa o elemento <head> do documento.
+    * document.title: representa o título do documento, que é exibido na aba do navegador.
+    * document.URL: representa a URL atual do documento.
+    * document.links: retorna uma coleção de todos os links (<a>) no documento.
+    * document.images: retorna uma coleção de todas as imagens (<img>) no documento.
+    * document.forms: retorna uma coleção de todos os formulários (<form>) no documento.  
+  -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/DOM-APIsBrowser/css/style.css" />
+  </head>
+  <body>
+    <h1>Front-End: Dinamico</h1>
+    <h1>Browser APIs & Dom integrando o javaScript ao HTML/CSS</h1>
+    <p class="paragrafo" id="paragrafo1">
+      <strong>Primero paragrafo:</strong><br />
+      ipsun Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+      ratione minima atque sequi voluptas? Reiciendis distinctio asperiores
+      deleniti dolor natus aspernatur quo animi aliquam, eaque ex beatae.
+      Facilis, repellat nostrum.
+    </p>
+    <p class="paragrafo" id="paragrafo2">
+      <strong>segundo paragrafo</strong><br />
+      ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+      dolorum voluptatibus consequatur ipsum amet fugiat aperiam nobis
+      voluptates eum, repellendus asperiores modi cum, recusandae debitis
+      molestias magni sequi qui eligendi?
+    </p>
+    <br />
+    <h3>Lista</h3>
+    <br />
+    <ul id="lista">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </ul>
+    <br />
+
+    <label for="email-imput">E-mail:</label>
+    <br />
+    <input
+      type="text"
+      name="email"
+      id="email-input"
+      placeholder="Digite algo aqui..."
+    />
+    <br />
+    <img id="img1" src="/img/logo.png" /> <br />
+    <img id="img2" src="/img/aleatorio (1).webp" width="500" /> <br />
+    <img id="img3" src="/img/gatinho.jpg" width="500" /> <br />
+
+    <script src="/DOM-APIsBrowser/aula-20.js"></script>
+  </body>
+</html>
