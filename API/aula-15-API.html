@@ -1,0 +1,121 @@
+<!-- *API
+API - Aplication Programing Interface - inteface de Programação de Aplicação.
+usa dados providencido por terceiros
+
+exemplo: cep, googl maps, loguin social, pagamento online
+interface prontas que nos permite ultilizar funcionalidades/recursos integrando as nossa propria aplicações javascriptetc..
+seguindo um conjuto de definições/contrato estabelecido pelo mesmo.
+
+!tipos de api
+
+*1. 
+PÙplicas ou aberta
+*2. 
+privados ou internas
+*3. 
+APIs de terceiros
+
+*
+protocolo de APIs
+
+*1. 
+RPC
+*2. 
+SOAP
+*3. 
+Graphgl
+*4. 
+REST
+
+"REST": (Representational State Tranfes) -> Padão mais comum "API RESTfull "
+API que respeita as 6 restrições é considerasa uma API RESTfull.
+ 
+*as 6 restriçoes
+
+*1. 
+Ter uma arquitetura formada por clientes, servidores e recurso, com solicitação HTTP.
+
+*2.
+ estabelecer uma comunicação STATELESS entre cliente e servidor.
+"aonde nenhuma informação do cliente é armazenada entre solicitação GET e todas solicitações são separada e desconectadas."
+
+*3.
+Armazenar dados em cache para otimizar as interações entre cliente e servidor.
+
+*4. 
+Ter uma interface uniforme entre os componentes para que asinformações sejan transferidas em umm formato padronizado
+
+*5. 
+Ter um sistema em camadas que organiza ostipos de servidores
+(Responsavel pela segurança, pelo carregamento de carga e assim por diante).
+envolvido na recuperação das informações solicitada em hierarquias que o cliente não pode ver.
+
+*6. 
+Possibilitar codigo sob demanda (Opcional): A capacidae para enviar código executável do servidor para clliente quando solicidado
+para ampliar a funcionalidadee diponivel ao cliente.
+
+!caracteristica de APIs REST
+
+*1.
+Os recursos são solicitados/enviados via protocolo HTTP.
+
+*2.
+ URI BASE (base URL): Algumas APIs fornecem um "endereço base".
+Todas as sus requisições incluirão esse endereço, e ao final dele nós colocamos detalhes específicos para cada um dos recursos disponiveis.
+
+*3.
+ FORMARO DO DADO?RECURSO: Algumas APIs possuem formatos fixo de dados.
+Outras permitem que voçê escolha.
+È comum, por exemplo, que uma API permita que voçê escolha entre JSON, XML, CSV e/ou outros formatos.
+
+*4. 
+SCHEMAS: É bastante comum quem as APIs diponibilizem em "modelo" genérico de como será seu formato JSON para que os desenvolvedores saibam quais 
+campos esperar e quais tipos de dados serão possíveis para cada campo. Por exemplo:
+
+?{
+?  'nome':string,
+?  'pontuação': integer 
+?}
+
+*5.
+ AUTENTICAÇÂO? Outros aspecto importante é a autenticação. Enquanto algumas APIs são grátis/aberta, outras são paga.
+Ainda temos a hibridas (sendo parte do recurso gratudo e parte paga)
+
+*a. dois modelo mas comum de autenticação
+
+*I.
+ Chave: ao fazer registro voçê recebe uma chave que deverá se passada na requisição.
+
+*II. 
+OAuth: (Protocolo de autentificação) um esquema complexo de codigos de autorização, identificação do cliente e segredo do cliente em um
+POST, e o servidor cria uma sessão por um tempo limitado e fornece o ID da mesma.
+APIs de gigantee da internete (google, Facebook) costuma usar esse modelo.
+
+*III. 
+ENDPOINT: A URL COMPLETA, que deve ser acessada a fim de obter o recurso.
+
+*exe 1 Dictionary API:
+
+http://api.dictonaryapi.dev/api/v2/entries/en/helo
+
+*exe 2 OpenWeather API:
+
+http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API kay}
+
+*exe3 
+
+htttps://github.com/public-apis/public-apis
+
+* Como testar os APIs
+!obs: só apis do tipo get podem ser testada
+
+?1. navegador
+
+?2. Software
+
+*I. insommia
+
+*II. postman
+
+
+-->
