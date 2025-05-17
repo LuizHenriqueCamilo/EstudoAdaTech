@@ -1,0 +1,19 @@
+{
+  "anotação1": "formatação leve de troca de dados",
+  "anotação2": "para humanos facil de ler e escrever",
+  "anotação3": "para maquina facil de interpetrar",
+  "exemplo": "de arquivo json:",
+  "id": 1,
+  "nome": "Luiz",
+  "posição": "Quaterback",
+  "idade": 30,
+  "autura": 1.85,
+  "mvp": true,
+  "exemplo1": 1,
+  "a": "configuração",
+  "b": "package.json",
+  "c": ".prettier.json",
+  "d": ".eslint.json",
+  "exemplo2": 2,
+  "anotacao4": "transferencia de dados na aplicação"
+}
