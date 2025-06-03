@@ -3,9 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-img {
+img#logo-img {
   max-width: 6rem;
-  border-radius: 50%;
+  width: 100%;
+  border-radius: 100px;
 }
 
 header {

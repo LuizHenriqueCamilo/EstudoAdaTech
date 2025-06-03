@@ -1,5 +1,5 @@
 import React from "react";
-import logoImg from "../../assets/img/logo.jpg";
+import logoImg from "../../assets/img/logo.webp";
 import "./style.css";
 
 class Navbar extends React.Component {
@@ -8,7 +8,7 @@ class Navbar extends React.Component {
       <header>
         <nav id="navbar">
           <div className="nav-brand">
-            <img src={logoImg} alt="" />
+            <img id="logo-img" src={logoImg} alt="/" />
             <h1 id="logo">Space Flight News</h1>
           </div>
 
