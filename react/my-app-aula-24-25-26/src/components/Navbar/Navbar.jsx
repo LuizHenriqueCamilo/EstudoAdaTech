@@ -1,9 +1,9 @@
 import React from "react";
 import logoImg from "../../assets/img/logo.webp";
 import "./style.css";
-
-class Navbar extends React.Component {
-  render() {
+// componente funcional é uma função que retorna HTML, não precisa herdar a classe componente do React
+// e não possui estado interno, mas pode receber props como parâmetro.
+function Navbar () {
     return (
       <header>
         <nav id="navbar">
@@ -29,6 +29,6 @@ class Navbar extends React.Component {
         </nav>
       </header>
     );
-  }
+  
 }
 export default Navbar;
