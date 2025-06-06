@@ -1,50 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/App.css";
 import Navbar from "./components/Navbar/Navbar"; //importando o React e o componente Navbar
-import { Article } from "./components/Article/Article";
-//componente em classe é uma classe que herda a classe componente do React e retorna HTML dentro do método render.
-import Article01 from "./assets/img/banner01.jpg";
-import Article02 from "./assets/img/banner02.jpg";
-import Article03 from "./assets/img/banner03.webp";
-import Article04 from "./assets/img/banner04.jpg";
+import { Article } from "./components/Article/Article.jsx"; //componente em classe é uma classe que herda a classe componente do React e retorna HTML dentro do método render.
 import { Counter } from "./components/Counter/counter";
+import axios from "axios";
+// import { timers } from "react-loader-spinner";
+import { TailSpin } from "react-loader-spinner";
 
-class App extends React.Component {
-  render() {
-    //render medoto responsável por renderizar o componente
-    return (
-      <>
-        <Navbar />
-        <Counter />
-
-        <section id="articles">
+function App() {
+  const [news, setNews] = useState([]); // criando um estado para armazenar as notícias
+  useEffect(() => {
+    async function loadNews() {
+      try {
+        const response = await axios.get(
+          "https://api.spaceflightnewsapi.net/v3/articles"
+        );
+        setNews(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar notícias:", error);
+      }
+    }
+    loadNews();
+  }, []);
+  //render medoto responsável por renderizar o componente
+  return (
+    <>
+      <Navbar />
+      <TailSpin
+        height="80"
+        width="80"
+        radius="9"
+        color="green"
+        ariaLabel="loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={news.length === 0}
+      />
+      <section id="articles">
+        {news.length === 0 && (
+          <div className="loading-message">
+            <p>Carregando notícias...</p>
+          </div>
+        )}
+        {/* Verifica se o array de notícias está vazio antes de mapear */}
+        {news.map((id, title, newsSite, summary, imageUrl, Article01) => (
           <Article
-            title="Designing Dashboard"
-            provider="nasa"
-            description="Mussum Ipsum, cacilds vidis litro abertis.  Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Morbi viverra placerat justo, vel pharetra turpis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per."
-            thumbnail={Article01}
+            key={id} // Usando o id como chave única para cada artigo
+            title={title}
+            provider={newsSite}
+            description={summary}
+            thumbnail={imageUrl || Article01} // Usando uma imagem padrão se imageUrl não estiver disponível
           />
-          <Article
-            title="exemplo2"
-            provider="mussum"
-            description="Mussum Ipsum, cacilds vidis litro abertis.  Atirei o pau no gatis, per gatis num morreus. Leite de capivaris, leite de mula manquis sem cabeça. Sapien in monti palavris qui num significa nadis i pareci latim. Cevadis im ampola pa arma uma pindureta."
-            thumbnail={Article02}
-          />
-          <Article
-            title="exemplo3"
-            provider="mussum Ipsum"
-            description="Mussum Ipsum, cacilds vidis litro abertis.  Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Cevadis im ampola pa arma uma pindureta. Delegadis gente finis, bibendum egestas augue arcu ut est. Manduma pindureta quium dia nois paga."
-            thumbnail={Article03}
-          />
-          <Article
-            title="exemplo4"
-            provider="mussumzueria"
-            description="Mussum Ipsum, cacilds vidis litro abertis.  Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Leite de capivaris, leite de mula manquis sem cabeça. Quem num gosta di mim que vai caçá sua turmis! Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus."
-            thumbnail={Article04}
-          />
-        </section>
-      </>
-    );
-  }
+        ))}
+      </section>
+      <Counter />
+    </>
+  );
 }
 export default App;
