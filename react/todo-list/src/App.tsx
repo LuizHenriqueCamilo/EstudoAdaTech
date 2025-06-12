@@ -1,13 +1,20 @@
 import { Header } from "./components/Header/Header";
 import "./styles/global.css";
 import { Tasks } from "./components/Tasks/Tasks";
+import { TasksProvider } from "./context/TasksContext";
+// import { Refs } from "./components/Concepts/Refs";
+// import { Memoization } from "./components/Memoization/Memoization";
 
 function App() {
   return (
-    <>
+    <TasksProvider>
       <Header />;
       <Tasks />
-    </>
+      {/* <Memoization
+        financialData={{ incomes: [50, 30, 20], outcomes: [5, 8, 4] }}
+      />
+      <Refs /> */}
+    </TasksProvider>
   );
 }
 

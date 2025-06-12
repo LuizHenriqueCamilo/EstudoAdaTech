@@ -1,16 +1,11 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import styles from "./styles.module.scss";
-
-interface Task {
-  id: string;
-  title: string;
-  done: boolean;
-}
+import { TasksContext } from "../../context/TasksContext";
 
 export const Tasks: React.FC = () => {
   const [taskTitle, setTaskTitle] = useState("");
-  const [tasks, setTasks] = useState([] as Task[]);
 
+  const { tasks, setTasks, handleToggleTaskStatus } = useContext(TasksContext);
   // função para lidar com o envio do formulário
   // useState é um hook do React que permite adicionar o estado ao componente funcional
   function handleSubmitTask(e: FormEvent) {
@@ -34,14 +29,7 @@ export const Tasks: React.FC = () => {
     setTaskTitle("");
     // setTasksTitle("") é usado para limpar o campo de entrada após a tarefa ser adicionada
   }
-  useEffect(() => {
-    const tasksOnLocalStorage = localStorage.getItem("tasks");
-    // localStorage.getItem é usado para obter as tarefas armazenadas no armazenamento local do navegador
-    if (tasksOnLocalStorage) {
-      setTasks(JSON.parse(tasksOnLocalStorage));
-      // JSON.parse é usado para converter a string JSON de volta em um array de tarefas
-    }
-  }, []);
+
 
   return (
     <section className={styles.container}>
@@ -67,8 +55,18 @@ export const Tasks: React.FC = () => {
           return (
             <li key={task.id}>
               {/* key é uma propriedade especial do React usada para identificar elementos únicos em uma lista */}
-              <input type="checkbox" id={`task-${task.id}`} />
-              <label htmlFor={`task-${task.id}`}>{task.title}</label>
+              <input
+                type="checkbox"
+                id={`task-${task.id}`}
+                onChange={() => handleToggleTaskStatus(task.id)}
+                checked={task.done}
+              />
+              <label
+                htmlFor={`task-${task.id}`}
+                className={task.done ? styles.done : ""}
+              >
+                {task.title}
+              </label>
             </li>
           );
         })}
