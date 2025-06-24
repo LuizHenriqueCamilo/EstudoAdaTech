@@ -8,6 +8,7 @@ import { login, logout } from "../../redux/UserReducer/user-slicer";
 
 export const Header: React.FC = () => {
  const user = useSelector((state: RootState) => state.userReducer.user);
+  const products = useSelector((state: RootState) => state.cartReducer.products);
   const isLogged = user !== null;
   const dispatch = useDispatch();
   const [showCart, setShowCart] = useState(false);
@@ -39,7 +40,7 @@ export const Header: React.FC = () => {
           </S.CartButton>
         </S.ButtonWrapper>
       </S.Wrapper>
-      <Cart showCart={showCart} />
+      <Cart showCart={showCart} cart={products} />
     </S.StyledHeader>
   );
 };

@@ -1,17 +1,17 @@
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import * as S from "./styles";
-import { RootState } from "../../redux/store/store"; 
 import { addProduct, removeProduct } from "../../redux/Cart/cart-slice";
+import { Product } from "../../data/products";
 
 
 interface CartProps {
   showCart: boolean;
+  cart: Product[];
 }
 
-export const Cart: React.FC<CartProps> = ({ showCart }) => {
+export const Cart: React.FC<CartProps> = ({ showCart, cart }) => {
   const dispatch = useDispatch();
-  const products = useSelector((state: RootState) => state.cartReducer.products);
-  const total = products.reduce((acc, product) => acc + product.price, 0);
+  const total = cart.reduce((acc, product) => acc + product.price, 0);
 
 function handleAddProductToCart(product: any) {
   dispatch(addProduct(product));
@@ -25,7 +25,7 @@ function handleRemoveProductFromCart(product: any) {
     <S.Container showCart={showCart}>
       <S.Title>Carrinho</S.Title>
       <S.CartProductsList>
-        {products.map((product) => (
+        {cart.map((product) => (
           <S.CartProductItem key={product.id}>
             <span>{product.title || `Produto #${product.id}`}</span>
             <button onClick={() => handleRemoveProductFromCart(product)}>
